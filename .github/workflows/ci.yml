@@ -27,4 +27,4 @@ jobs:
           context: .
           push: true
           # নিচে তোমার ইউজারনেম বসাও
-          tags: YOUR_DOCKER_USERNAME/my-hackathon-app:latest
+          tags: devshahria/my-hackathon-app:latest
