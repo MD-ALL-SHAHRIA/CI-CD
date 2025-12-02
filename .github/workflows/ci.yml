@@ -1,24 +1,20 @@
-name: My First CI Robot
+name: Build Docker Image
 
-# ১. রোবট কখন কাজ শুরু করবে?
 on:
   push:
     branches: [ "main" ]
 
-# ২. রোবটের কাজের তালিকা
 jobs:
-  check-my-code:
+  build-job:
     runs-on: ubuntu-latest
     
     steps:
-      # ধাপ ১: তোমার কোড নামিয়ে আনবে
       - name: Checkout Code
         uses: actions/checkout@v3
 
-      # ধাপ ২: হ্যালো বলবে (টেস্ট রান)
-      - name: Say Hello
-        run: echo "Hello! The robot is working perfectly!"
-
-      # ধাপ ৩: ডকার চেক করবে (আমাদের হ্যাকাথনের জন্য দরকারি)
-      - name: Check Docker Version
-        run: docker --version
+      # আসল কাজ: রোবট এখন ইমেজ বিল্ড করবে
+      - name: Build Docker Image
+        run: docker build -t my-test-image .
+        
+      - name: Verify Build
+        run: docker images
