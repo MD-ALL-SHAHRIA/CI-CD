@@ -1,0 +1,24 @@
+name: My First CI Robot
+
+# ১. রোবট কখন কাজ শুরু করবে?
+on:
+  push:
+    branches: [ "main" ]
+
+# ২. রোবটের কাজের তালিকা
+jobs:
+  check-my-code:
+    runs-on: ubuntu-latest
+    
+    steps:
+      # ধাপ ১: তোমার কোড নামিয়ে আনবে
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      # ধাপ ২: হ্যালো বলবে (টেস্ট রান)
+      - name: Say Hello
+        run: echo "Hello! The robot is working perfectly!"
+
+      # ধাপ ৩: ডকার চেক করবে (আমাদের হ্যাকাথনের জন্য দরকারি)
+      - name: Check Docker Version
+        run: docker --version
